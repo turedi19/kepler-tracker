@@ -12,8 +12,8 @@ import io
 
 
 
-username="turedi19@itu.edu.tr"
-pasword = "14594267Gt"
+username="****@itu.edu.tr"
+pasword = "*******"
 options = Options()
 options.headless = True
 ##options = webdriver.ChromeOptions()
@@ -38,8 +38,8 @@ sleep(2)
 elem = driver.find_element(by=By.XPATH,value='//*[@id="page-wrapper"]/div[2]/div/div/div[3]/div/div/div/table/tbody')
 sleep(2)
 trs = elem.find_elements(By.TAG_NAME,"tr")
-s3_client = boto3.client('s3', region_name='us-east-1', aws_access_key_id='AKIAWWCP6L7RQMHMHEFJ',
-                               aws_secret_access_key='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')
+s3_client = boto3.client('s3', region_name='us-east-1', aws_access_key_id='************J',
+                               aws_secret_access_key='*************h')
 
 S3_BUCKET = 'guvenbucket'
 def lambda_handler():
@@ -49,20 +49,20 @@ def lambda_handler():
   return file_content.decode()
 w=lambda_handler()
 if trs.__len__()>int(w):
- account_sid = 'AC9e424acd0a50e312f76459d7e100413b'
- auth_token = '413afe6519d130cf2f33eeb7a1aa280e'
+ account_sid = '*************'
+ auth_token = '**************'
  client = Client(account_sid, auth_token)
 
  message = client.messages.create(
-    from_='whatsapp:+14155238886',
+    from_='whatsapp:+********',
     body=trs[trs.__len__()-1].text,
-    to='whatsapp:+905454400978'
+    to='whatsapp:+*********'
  )
 
  print(message.sid)
 session = boto3.Session(
-aws_access_key_id='AKIAWWCP6L7RQMHMHEFJ',
-aws_secret_access_key='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'
+aws_access_key_id='***********',
+aws_secret_access_key='**********'
 )
 
 #Creating S3 Resource From the Session.
